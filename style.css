@@ -1,32 +1,95 @@
 :root {
-    --legend-gold: #ffcc00;
-    --admin-neon: #00f2ff;
-    --bg-dark: #0a0a0c;
-    --glass: rgba(255, 255, 255, 0.05);
+    --gold: #FFD700;
+    --neon-blue: #00f2ff;
+    --bg: #050505;
+    --card: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
 }
 
 body {
-    background: var(--bg-dark);
-    color: white;
-    font-family: 'JetBrains Mono', monospace;
-    overflow-x: hidden;
-}
-
-/* The "Supervisor" Dashboard Container */
-.dashboard-wrapper {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    height: 100vh;
-    gap: 10px;
-    padding: 10px;
-}
-
-/* Glassmorphism Cards */
-.panel {
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
+    background-color: var(--bg);
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace; /* Professional tech font */
+    margin: 0;
     padding: 20px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Glassmorphism Panels */
+.panel, .modal-content, .sidebar {
+    background: var(--card);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Navigation Row */
+nav {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    overflow-x: auto;
+}
+
+button {
+    background: #222;
+    border: 1px solid #444;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+button:hover {
+    background: var(--neon-blue);
+    color: black;
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+/* Legend Menu - Glowing Style */
+#adminBtn {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* Heading Styles */
+h1, h2 {
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+h2 {
+    color: var(--neon-blue);
+    font-size: 1.2rem;
+}
+
+/* Password Input */
+input[type="password"] {
+    background: #111;
+    border: 1px solid #333;
+    color: var(--neon-blue);
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Leaderboard Content Area */
+#main-view {
+    min-height: 200px;
+    border-left: 4px solid var(--neon-blue);
+}
+
+/* Hide sections properly */
+.hidden {
+    display: none;
 }
