@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIZZA HQ</title>
+    <title>PIZZA HQ | Supervisor Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="app-container">
         <header class="panel header-bar">
             <div class="brand">🍕 PIZZA GROUP</div>
@@ -15,7 +16,7 @@
                 <button onclick="showSection('leaderboard')">Leaderboard</button>
                 <button onclick="showSection('games')">Mini Games</button>
                 <button onclick="showSection('chat')">WhatsApp Hub</button>
-                <button id="adminBtn" onclick="openLegendMenu()">LEGENDS MENU</button>
+                <button id="adminBtn" onclick="showSection('legend-gate')">LEGENDS MENU</button>
             </nav>
             <div class="user-info">
                 <span id="rank-badge">Visitor</span>
@@ -26,24 +27,41 @@
         <main id="main-view" class="panel">
             <div id="leaderboard" class="view">
                 <h2>SUPERVISOR VIEW: LEADERBOARD</h2>
-                <div id="leaderboard-list"></div>
+                <div id="leaderboard-list">
+                    <p class="placeholder-text">Syncing with Gemini Verse...</p>
+                </div>
             </div>
-            <div id="games" class="view hidden"><h2>PIZZA ARCADE</h2></div>
-            <div id="chat" class="view hidden"><h2>WHATSAPP HUB</h2></div>
+
+            <div id="games" class="view hidden">
+                <h2>PIZZA ARCADE</h2>
+                <p>Games loading...</p>
+            </div>
+
+            <div id="chat" class="view hidden">
+                <h2>WHATSAPP REAL-TIME HUB</h2>
+                <div id="chat-output" style="background:#000; padding:10px; height:150px; overflow-y:auto; border:1px solid #333;">
+                    <p style="color:#555;">> Waiting for API broadcast...</p>
+                </div>
+            </div>
+
+            <div id="legend-gate" class="view hidden">
+                <h2>LEGACY OVERRIDE REQUIRED</h2>
+                <div class="gate-container">
+                    <p id="lock-msg">Enter founder passcode to unlock modification tools.</p>
+                    <input type="password" id="founder-key" placeholder="••••••••" onkeydown="if(event.key === 'Enter') verifyFounder()">
+                    <button onclick="verifyFounder()" class="unlock-btn">AUTHORIZE</button>
+                </div>
+            </div>
+
+            <div id="legend-controls" class="view hidden">
+                <h2 style="color: var(--gold);">LEGACY COMMAND CENTER</h2>
+                <div id="rank-editor-ui"></div>
+            </div>
         </main>
     </div>
 
-    <div id="legend-overlay" class="modal hidden">
-        <div class="modal-content glass">
-            <h2>LEGACY OVERRIDE</h2>
-            <p id="lock-msg">Enter founder passcode.</p>
-            <input type="password" id="founder-key" onkeydown="if(event.key === 'Enter') verifyFounder()">
-            <div id="rank-editor-ui" class="hidden"></div>
-            <button onclick="closeLegendMenu()" class="close-btn">X CLOSE</button>
-        </div>
-    </div>
-
     <script src="firebase-config.js"></script>
+    <script src="whatsapp-api.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
