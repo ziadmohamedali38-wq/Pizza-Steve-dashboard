@@ -1,17 +1,29 @@
-:root { --gold: #FFD700; --neon: #00f2ff; --bg: #050507; }
-body { background: var(--bg); color: #fff; font-family: 'JetBrains Mono', monospace; margin: 0; padding: 15px; height: 100vh; overflow: hidden; }
-.panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; }
+:root {
+    --gold: #FFD700; --neon: #00f2ff; --bg: #050507; --border: rgba(255,255,255,0.1);
+}
+body {
+    background: var(--bg); color: #fff; font-family: 'JetBrains Mono', monospace;
+    margin: 0; padding: 15px; height: 100vh; overflow: hidden;
+}
+.panel {
+    background: rgba(255,255,255,0.03); backdrop-filter: blur(20px);
+    border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+}
 .header-bar { display: flex; flex-direction: column; gap: 15px; margin-bottom: 15px; }
 .main-nav { display: flex; gap: 8px; }
-button { background: #1a1a1c; border: 1px solid #333; color: #ccc; padding: 8px 14px; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-size: 0.7rem; }
+button {
+    background: #1a1a1c; border: 1px solid #333; color: #ccc;
+    padding: 8px 14px; border-radius: 4px; cursor: pointer; font-size: 0.7rem;
+}
 button:hover { border-color: var(--neon); color: var(--neon); }
-#adminBtn { border-color: var(--gold); color: var(--gold); animation: glow 3s infinite; }
-@keyframes glow { 50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); } }
+#adminBtn { border-color: var(--gold); color: var(--gold); }
 #main-view { height: calc(100vh - 220px); border-left: 3px solid var(--neon); overflow-y: auto; }
-h2 { color: var(--neon); font-size: 1rem; }
-.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; justify-content: center; align-items: center; z-index: 100; }
-.modal-content { width: 90%; max-width: 400px; text-align: center; background: #111; padding: 30px; border-radius: 15px; border: 1px solid #333; }
 .hidden { display: none !important; }
-.admin-input { width: 90%; padding: 10px; background: #000; border: 1px solid #444; color: white; margin-top: 10px; }
-input[type="password"] { background: #000; border: 1px solid var(--neon); color: var(--neon); padding: 12px; width: 80%; margin: 15px 0; }
-.close-btn { margin-top: 20px; border-color: #ff4444; color: #ff4444; }
+.gate-container { text-align: center; margin-top: 50px; }
+input[type="password"], .admin-input {
+    background: #000; border: 1px solid var(--neon); color: var(--neon);
+    padding: 12px; width: 80%; max-width: 300px; margin: 10px 0;
+}
+.unlock-btn { background: var(--neon); color: black; font-weight: bold; width: 100px; }
+.admin-box { background: rgba(255,215,0,0.05); padding: 20px; border: 1px solid var(--gold); text-align: center; }
+.commit-btn { background: var(--gold); color: black; width: 100%; margin-top: 10px; font-weight: bold; }
