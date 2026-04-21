@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIZZA | Legend Command</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app-shell" class="dashboard-grid">
+        
+        <aside class="sidebar panel">
+            <div class="brand">🍕 PIZZA GROUP</div>
+            <nav>
+                <button onclick="showSection('leaderboard')" class="nav-item">Leaderboard</button>
+                <button onclick="showSection('games')" class="nav-item">Mini Games</button>
+                <button onclick="showSection('chat')" class="nav-item">WhatsApp Hub</button>
+                <hr class="divider">
+                <button id="adminBtn" class="nav-item legend-only" onclick="openLegendMenu()">LEGENDS MENU</button>
+            </nav>
+            <div id="user-status" class="status-card">
+                <span id="rank-badge">Visitor</span>
+                <p id="username">Logging in...</p>
+            </div>
+        </aside>
+
+        <main id="main-view" class="content-area panel">
+            <div id="leaderboard" class="view">
+                <h2>Supervisor View: Leaderboard</h2>
+                <div class="leaderboard-controls">
+                    </div>
+                <div id="leaderboard-data" class="custom-scroll">
+                    </div>
+            </div>
+            
+            <div id="games" class="view hidden"></div>
+            <div id="chat" class="view hidden"></div>
+        </main>
+
+    </div>
+
+    <div id="legend-overlay" class="modal hidden">
+        <div class="modal-content glass">
+            <h2>LEGACY OVERRIDE</h2>
+            <p>Enter founder passcode to modify ranks in real-time.</p>
+            <input type="password" id="founder-key" placeholder="••••••••">
+            <div id="rank-editor-ui">
+                </div>
+            <button onclick="closeLegendMenu()" class="close-btn">X</button>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-database.js"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
